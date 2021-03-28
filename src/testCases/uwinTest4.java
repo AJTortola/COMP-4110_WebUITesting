@@ -16,3 +16,19 @@ public class uwinTest1 {
 		driver.findElement(By.className("search-button")).click(); //Finds the search button by its class name and clicks it.
 		driver.findElement(By.id("edit-search-keys")).sendKeys("uwinsite"); //Inputs uwinsite into the search field by locating it from its id
 		driver.findElement(By.id("edit-submit")).click();//Finds the submit button by its id and clicks it to search.
+		
+		String currentPage = driver.getTitle(); //Will get the title of the current page it is on
+		String expectedTitle = "UWindsor Search | University of Windsor"; //The expected title of the page
+		if(currentPage.equalsIgnoreCase(expectedTitle))//checks if the page title is equal to the expected page title
+		{
+			System.out.println("Test Successful! Title of webpage: " + currentPage); //If equal test was successful
+		}
+		else
+		{
+			System.out.println("Test Unsuccessful"); //If not equal test unsuccessful 
+		}
+		
+		
+	}
+
+}
