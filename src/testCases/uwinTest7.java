@@ -29,3 +29,19 @@ public class uwinTest4 {
 		WebDriverWait wait = new WebDriverWait(driver, 5); //Waits for the visibility of the Sign in to Uwinsite button using its xpath. This is so it has enough time to load in and become clickable.
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='hybrid-button login-uwinsite']")));
 		driver.findElement(By.xpath("//div[@class='hybrid-button login-uwinsite']")).click(); //Finds and clicks the uwinsite log in button by its xpath
+		
+		String currentPage = driver.getTitle(); //Will get the title of the current page it is on
+		String expectedTitle = "Sign in to your account"; //The expected title of the page
+		if(currentPage.equalsIgnoreCase(expectedTitle))//checks if the page title is equal to the expected page title
+		{
+			System.out.println("Test Successful! Title of webpage: " + currentPage); //If equal test was successful
+		}
+		else
+		{
+			System.out.println("Test Unsuccessful"); //If not equal test unsuccessful 
+		}
+	}
+
+}
+
+
