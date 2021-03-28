@@ -22,3 +22,22 @@ public class uwinTest8 {
 		driver.findElement(By.id("menu-button")).click(); //Find the menu button by its id and click
 		WebElement opentabs=driver.findElement(By.xpath("(//div[@class='col-md-3'])[1]")); //Create WebElement opentabs which equals the xpath for the Quicklinks in the menu section. The reason for the [1] in the xpath is because there are multiple sections with that xpath and we want the first one for quicklinks.
 		
+		for(int i=0;i<opentabs.findElements(By.tagName("a")).size();i++) //This for loop will open all of the links under quick links in new tabs
+		{
+			String opentabsagain=Keys.chord(Keys.CONTROL,Keys.ENTER);
+			opentabs.findElements(By.tagName("a")).get(i).sendKeys(opentabsagain);
+		}
+		
+		int currentLinks = opentabs.findElements(By.tagName("a")).size(); //Will get the number of links under the Quick Links section.
+		int expectedLinks = 9; //The expected number of links on the page
+		if(currentLinks == expectedLinks)//checks if the number of links on the page is equal to the expected number of links
+		{
+			System.out.println("Test Successful! Number of Quick Links in Menu: " + opentabs.findElements(By.tagName("a")).size()); //If equal test was successful
+		}
+		else
+		{
+			System.out.println("Test Unsuccessful! Actual number of links on this page: " + opentabs.findElements(By.tagName("a")).size()); //If not equal test unsuccessful 
+		}
+	}
+
+}
