@@ -21,3 +21,11 @@ public class uwinTest4 {
 		driver.findElement(By.id("edit-search-keys")).sendKeys("uwinsite"); //Inputs uwinsite into the search field by locating it from its id
 		driver.findElement(By.id("edit-submit")).click(); //Finds the submit button by its id and clicks it to search.
 		driver.findElement(By.linkText("UWinsite Student | Office of the Registrar")).click(); //Finds and clicks the UWinsite Student | Office of the Registrar by link text.
+		
+		ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles()); //This will tell selenium to switch to tab 2 that it opened. This is done so that it can view the elements on the newly opened tab and find them.
+		driver.switchTo().window(tabs2.get(1));
+		
+		
+		WebDriverWait wait = new WebDriverWait(driver, 5); //Waits for the visibility of the Sign in to Uwinsite button using its xpath. This is so it has enough time to load in and become clickable.
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='hybrid-button login-uwinsite']")));
+		driver.findElement(By.xpath("//div[@class='hybrid-button login-uwinsite']")).click(); //Finds and clicks the uwinsite log in button by its xpath
