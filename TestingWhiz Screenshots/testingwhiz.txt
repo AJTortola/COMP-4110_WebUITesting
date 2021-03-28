@@ -1,0 +1,2 @@
+Testing whiz was not an adequate solution for us. Since it was a codeless solution, it made it difficult to run test cases because we could not customize the test command elements.
+This caused our test cases to not initiate properly. With this we decided to move to using Selenium which led us to come up with the conclusion that Selenium was a much better testing solution.
