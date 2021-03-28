@@ -1,7 +1,6 @@
 package testCases;
 //Description: This code will go to uwindsor.ca and search in the search field for uwinsite. It will find and click the UWinsite Student | Office of the Registrar link. 
-//It will then find the Sign in to uwinsite button and click it. Then it will enter the username and password in the corresponding fields. Purposely getting a password error will find password reset and click it.
-
+//It will then find the Sign in to uwinsite button and click it. Then it will enter the username and password in the corresponding fields. 
 
 import java.util.ArrayList;
 
@@ -31,3 +30,15 @@ public class uwinTest5 {
 		WebDriverWait wait = new WebDriverWait(driver, 5); //Waits for the visibility of the Sign in to Uwinsite button using its xpath. This is so it has enough time to load in and become clickable.
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='hybrid-button login-uwinsite']")));
 		driver.findElement(By.xpath("//div[@class='hybrid-button login-uwinsite']")).click(); //Finds and clicks the uwinsite log in button by its xpath
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='i0116']"))); //Waits for the visibility of the email field using its xpath. This is so it has enough time to load in and become clickable.
+		driver.findElement(By.id("i0116")).sendKeys("email here"); //Finds the email field by its id and enters the users email. Email ommited for confidentiality
+		driver.findElement(By.id("idSIButton9")).click(); //Finds the next button by its id and clicks it.
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='i0118']"))); //Waits for the visibility of the password field using its xpath. This is so it has enough time to load in and become clickable.
+		driver.findElement(By.id("i0118")).sendKeys("password"); //Finds the password field by its id and enters the users password.
+		driver.findElement(By.id("idSIButton9")).click(); //Finds the next button by its id and clicks it.
+		
+		
+	}
+
+}
